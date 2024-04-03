@@ -84,14 +84,6 @@ async def switch_auto_sec_status(callback_query: CallbackQuery):
     )
     await callback_query.message.edit_text(report_message, reply_markup=generate_manage_auto_sec_keyboard(auto_sec.is_active))
 
-@auto_sec_router.callback_query(F.data.func(lambda data: (data == "add_bad_words") or (data == "view_pv_users")))
-async def not_implemented(callback_query: CallbackQuery):
-    if callback_query.from_user.id != CLIENT_ID:
-        r_print(f'[blue]Callback {callback_query.data} from not admin account! ID: {callback_query.from_user.id}[/blue]') 
-        return
-    r_print(f'[blue]Callback {callback_query.data} form admin![/blue]')
-    await callback_query.answer(messages.NOT_IMPLEMENTED_MESSAGE, show_alert=True)
-
 def generate_manage_auto_sec_keyboard(is_active: bool):
     buttons = []
      # Add developer button

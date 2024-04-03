@@ -126,12 +126,6 @@ async def handle_alert(event):
 
     await event.edit(messages.SENT_ALERTS.format(count=counter))
 
-@tel_client.on(events.NewMessage(pattern=r'^/w auto join$', outgoing=True))
-async def handle_auto_join(event):
-    await event.edit('🔄️ درحال ارسال...')
-    await auto_join_manager()
-    await event.edit("✅ Done.")
-
 @tel_client.on(events.NewMessage(incoming=True))
 async def handle_private_incoming(event):
     user = await event.get_sender()
