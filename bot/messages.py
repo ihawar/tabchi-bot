@@ -60,7 +60,7 @@ MANAGE_ALL_BANNERS_REPORT = """<b>مدیریت بنرها:</b>
 💻 نوشته شده توسط: @wwaramii"""
 ADD_NEW_BANNER_BUTTON = ['➕ اضافه کردن بنر جدید', 'create_new_banner']
 CREATE_BANNER_TITLE_INPUT = "✏️ اسم بنر جدید را وارد کنید:"
-CREAT_BANNER_CONTENT_INPUT = "✏️ حالا متن بنر را وارد کنید: (از لینک استفاده نکنید! بیشتر گروه ها زد لینک دارن.)"
+CREAT_BANNER_CONTENT_INPUT = "✏️ حالا متن بنر را وارد کنید: (از لینک استفاده نکنید! بیشتر گروه ها ضد لینک دارن.)"
 
 ERROR_MESSAGE = "شت:/ یه اروری رخ داد!"
 MANAGE_BANNER_REPORT = """<b>مدیریت بنر:</b>
