@@ -137,12 +137,13 @@ async def handle_private_incoming(event):
     user = await event.get_sender()
     if event.is_private:
         user = await event.get_sender()
-        if not user.bot: 
+        user_pv = await AsyncDatabaseManager().get_user_pv(user_id=user.id)
+        if not user.bot and not user_pv: 
             auto_secs = await AsyncDatabaseManager().get_all_message_secs()
             auto_sec = auto_secs[-1]
             if not auto_sec.is_active: return
             await event.reply(auto_sec.response)
             # Add to contact
             await tel_client(AddContactRequest(id=user.id, first_name=user.first_name or 'None', last_name=user.last_name or 'None', phone=user.phone if user.phone else ''))
-            
+            await AsyncDatabaseManager().create_user_pv(user_id=user.id)
             await AsyncDatabaseManager().increase_message_sec_pv_count(id=auto_sec.id)

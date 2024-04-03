@@ -61,3 +61,8 @@ class MessageSec(Base):
 
     def __repr__(self) -> str:
         return f"MessageSec(id={self.id}, response={self.response}, pv_count={self.pv_count})"
+
+class UserPv(Base):
+    __tablename__ = 'message_pvs'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(String(16), unique=True)

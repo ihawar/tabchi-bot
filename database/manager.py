@@ -1,5 +1,5 @@
 from sqlalchemy import select, delete, update, func
-from database.models import Client, LinkStorageChannels, Group, MessageSec, Banner
+from database.models import Client, LinkStorageChannels, Group, MessageSec, Banner, UserPv
 from sqlalchemy.ext.asyncio import AsyncSession
 
 class AsyncDatabaseManager:
@@ -198,3 +198,18 @@ class AsyncDatabaseManager:
             result = await session.execute(update(MessageSec).where(MessageSec.id == id).values(pv_count=MessageSec.pv_count + 1))
             await session.commit()
             return bool(result.rowcount)
+
+    # User pv
+    async def create_user_pv(self, user_id: str) -> UserPv:
+        async with self.async_session() as session:
+            user = UserPv(user_id=user_id)
+            session.add(user)
+            await session.commit()
+            await session.refresh(user)
+            return user
+    
+    async def get_user_pv(self, user_id: str) -> UserPv:
+        async with self.async_session() as session:
+            result = await session.execute(select(UserPv).where(UserPv.user_id == user_id))
+            return result.scalars().first()
+        

@@ -3,19 +3,18 @@ START_MESSAGE = """
 🔹 از دستور های زیر برای مدیریت بخش سلف استفاده کنید:
 </b>
 1️⃣ اضافه کردن لینک دونی:
-/w new channel [channel_username]
-
+<code>/w new channel [channel_username]</code>
 2️⃣ حذف لینک دونی:
-/w delete channel [channel_username]
+<code>/w delete channel [channel_username]</code>
 
 3️⃣ اضافه کردن گروه جدید:
-/w new group [group_link]
+<code>/w new group [group_link]</code>
 
 4️⃣ حذف گروه:
-/w delete group [group_link]
+<code>/w delete group [group_link]</code>
 
 5️⃣ ارسال پیام همه گانی:
-/w alert [message]
+<code>/w alert [message]</code>
 
 6️⃣ جوین خودکار:
 /w auto join

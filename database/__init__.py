@@ -1,6 +1,6 @@
 from database.run import init_db
 from database.manager import AsyncDatabaseManager
-from database.models import Client, Group, LinkStorageChannels, MessageSec, Banner
+from database.models import Client, Group, LinkStorageChannels, MessageSec, Banner, UserPv
 
 __all__ = ['init_db', 
            'AsyncDatabaseManager', 
@@ -8,4 +8,5 @@ __all__ = ['init_db',
            'Group', 
            'LinkStorageChannels', 
            'MessageSec',
-           'Banner']
+           'Banner',
+           'UserPv']
