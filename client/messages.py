@@ -17,6 +17,9 @@ START_MESSAGE = """
 5️⃣ ارسال پیام همه گانی:
 <code>/w alert </code>[message]
 
+6️⃣ جوین خودکار:
+<code>/w auto join</code>
+
 ————————————————————
 💻 نوشته شده توسط: @wwaramii
 """
