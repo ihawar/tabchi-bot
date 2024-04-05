@@ -9,7 +9,7 @@ from telethon import events, errors
 from rich import print as r_print
 from database import AsyncDatabaseManager, Group
 from client.utils import join_chat
-from client.tasks import auto_join_manager
+from client.tasks import fetch_all_channels, join_group_links
 
 @tel_client.on(events.NewMessage(pattern=r'^/w$', outgoing=True))
 async def handle_start(event):
@@ -97,7 +97,7 @@ async def handle_delete_group(event):
         r_print(f"[green bold]Successfully removed {group.title} from the database.[/green bold]")
         await event.edit(messages.LEAVE_SUCCESS_MESSAGE)
 
-@tel_client.on(events.NewMessage(pattern=r'^/w alert (.+)$', outgoing=True, func=lambda e: e.is_private))
+@tel_client.on(events.NewMessage(pattern=r'^/w alert (.+)$', outgoing=True))
 async def handle_alert(event):
     message = event.pattern_match.group(1)
     await event.edit('🔄️ درحال ارسال...')
@@ -126,18 +126,25 @@ async def handle_alert(event):
 
     await event.edit(messages.SENT_ALERTS.format(count=counter))
 
-@tel_client.on(events.NewMessage(incoming=True))
+@tel_client.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def handle_private_incoming(event):
     user = await event.get_sender()
-    if event.is_private:
-        user = await event.get_sender()
-        user_pv = await AsyncDatabaseManager().get_user_pv(user_id=user.id)
-        if not user.bot and not user_pv: 
-            auto_secs = await AsyncDatabaseManager().get_all_message_secs()
-            auto_sec = auto_secs[-1]
-            if not auto_sec.is_active: return
-            await event.reply(auto_sec.response)
-            # Add to contact
-            await tel_client(AddContactRequest(id=user.id, first_name=user.first_name or 'None', last_name=user.last_name or 'None', phone=user.phone if user.phone else ''))
-            await AsyncDatabaseManager().create_user_pv(user_id=user.id)
-            await AsyncDatabaseManager().increase_message_sec_pv_count(id=auto_sec.id)
+    user_pv = await AsyncDatabaseManager().get_user_pv(user_id=user.id)
+    if not user.bot and not user_pv: 
+        auto_secs = await AsyncDatabaseManager().get_all_message_secs()
+        auto_sec = auto_secs[-1]
+        if not auto_sec.is_active: return
+        await event.reply(auto_sec.response)
+        # Add to contact
+        await tel_client(AddContactRequest(id=user.id, first_name=user.first_name or 'None', last_name=user.last_name or 'None', phone=user.phone if user.phone else ''))
+        await AsyncDatabaseManager().create_user_pv(user_id=user.id)
+        await AsyncDatabaseManager().increase_message_sec_pv_count(id=auto_sec.id)
+
+@tel_client.on(events.NewMessage(pattern=r'^/w auto join$', outgoing=True))
+async def handle_auto_join(event):
+    await event.edit('🔄️ درحال ارسال...')
+    r_print('[bold blue]Starting the auto join process.[/bold blue]')
+    links = await fetch_all_channels()
+    await join_group_links(links)
+    r_print('[bold blue]Ended the auto join process.[/bold blue]')
+    await event.edit('✅ Done.')
