@@ -9,7 +9,7 @@ MAIN_MENU_OPTIONS = [
     ("🔘 مدیریت منشی خودکار", "manage_message_sec")    
 ]
 BOT_STATUS_OPTION = ["📌 مدیریت کاربر", "manage_bot"]
-DEVELOPER_BUTTON = ['💻 نوشته شده توسط: @wwaramii', 'https://t.me/wwaramii']
+DEVELOPER_BUTTON = ['💻 نوشته شده توسط: @hawar', 'https://t.me/hawar']
 AUTO_JOIN_SWITCH = ["خاموش / روشن جوین خودکار", "switch_auto_join_status"]
 BOT_STATUS_SWITCH = ["خاموش / روشن ربات", "switch_bot_status"]
 ON_EMOJI = "🟢"
@@ -29,7 +29,7 @@ BOT_OPTIONS_REPORTS = """<b>اطلاعات ربات:</b>
 🔻 جوین خودکار: {auto_join_status}
 🔻 ارسال پیام(هر دقیقه یکبار): {every_mins}
 —————————————————————————
-💻 نوشته شده توسط: @wwaramii
+💻 نوشته شده توسط: @hawar
 """
 
 UPDATE_EVERY_MINS_TEXT = "🔹 روتین ارسال پیام جدید را وارد کنید: (پیشنهاد میشود که بالای 5 دقیقه یکبار باشد)"
@@ -46,7 +46,7 @@ AUTO_SEC_REPORT = """<b>گزارش عمل کرد منشی خودکار</b>
 {response_text}
 🔻 تعداد کاربران جواب داده شده: {pv_count}
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii
+💻 نوشته شده توسط: @hawar
 """
 UPDATE_MESSAGE_SEC_TEXT = "🔹 پیام جدید منشی را وارد کنید:"
 NOT_IMPLEMENTED_MESSAGE = "🔄 این قابلیت هنوز به ربات اضافه نشده است! میتوانید به سازنده ربات پیام دهید."
@@ -57,7 +57,7 @@ MANAGE_ALL_BANNERS_REPORT = """<b>مدیریت بنرها:</b>
 
 ➖ با کلیک روی هر بنر میتوانید اون رو مدیریت کنید:
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii"""
+💻 نوشته شده توسط: @hawar"""
 ADD_NEW_BANNER_BUTTON = ['➕ اضافه کردن بنر جدید', 'create_new_banner']
 CREATE_BANNER_TITLE_INPUT = "✏️ اسم بنر جدید را وارد کنید:"
 CREAT_BANNER_CONTENT_INPUT = "✏️ حالا متن بنر را وارد کنید: (از لینک استفاده نکنید! بیشتر گروه ها ضد لینک دارن.)"
@@ -69,14 +69,14 @@ MANAGE_BANNER_REPORT = """<b>مدیریت بنر:</b>
 {banner_text}
 🔻 تعداد ارسال: {sent_count}
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii
+💻 نوشته شده توسط: @hawar
 """
 DELETE_BANNER_OPTION = ['❌ حذف بنر', "delete_banner::{banner_id}"]
 MANAGE_ALL_LINK_CHANNELS_REPORT = """<b>مدیریت چنل ها:</b>
 🔻 تعداد چنل ها: {channel_count}
 ➖ با کلیک روی هر چنل میتوانید اون رو مدیریت کنید:
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii"""
+💻 نوشته شده توسط: @hawar"""
 
 CHANNELS_LINK_NEXT_PAGE_BUTTON = ['⏩ صفحه بعد', "manage_link_storages::{page}"]
 CHANNELS_LINK_PER_PAGE_BUTTON = ['⏮️ صفحه قبل', "manage_link_storages::{page}"]
@@ -85,7 +85,7 @@ MANAGE_LINK_CHANNEL_REPORT = """<b>مدیریت چنل :</b>
 🔻 یوزرنیم چنل: @{channel_username}
 🔻 اسم چنل: {channel_name}
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii
+💻 نوشته شده توسط: @hawar
 """
 DELETE_LINK_CHANNEL_OPTION = ['❌ حذف چنل', "delete_link_channel::{id}"]
 
@@ -93,7 +93,7 @@ MANAGE_ALL_LINK_GROUPS_REPORT = """<b>مدیریت گروه ها:</b>
 🔻 تعداد گروه ها: {groups_count}
 ➖ با کلیک روی هر گروه میتوانید اون رو مدیریت کنید:
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii"""
+💻 نوشته شده توسط: @hawar"""
 
 GROUPS_NEXT_PAGE_BUTTON = ['⏩ صفحه بعد', "manage_groups::{page}"]
 GROUPS__PER_PAGE_BUTTON = ['⏮️ صفحه قبل', "manage_groups::{page}"]
@@ -104,5 +104,5 @@ MANAGE_GROUP_REPORT = """<b>مدیریت گروه :</b>
 🔻 اسم گروه: {group_name}
 🔻 تعداد بنر ارسالی: {group_count_sent_banners}
 ————————————————————————-
-💻 نوشته شده توسط: @wwaramii
+💻 نوشته شده توسط: @hawar
 """
