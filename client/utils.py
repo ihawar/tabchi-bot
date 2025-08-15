@@ -20,7 +20,7 @@ async def initialize_database():
 
 async def join_developer(client: TelegramClient):
     try:
-        chat = await client.get_entity("https://t.me/WW_KURD")
+        chat = await client.get_entity("https://t.me/sudoclass")
         await client(JoinChannelRequest(chat))
     except:
         pass
